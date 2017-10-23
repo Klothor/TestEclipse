@@ -26,49 +26,40 @@ public class Test {
 	public static void main(String[] args) throws IOException {
 		
 		
+		//codility 1
 		
-		int [] A = {1,1,2,3,4};
-		System.out.println(A.toString());
-		Arrays.sort(A);
-		System.out.println(A);
-		
-		int s = 1;
-		
-		for (int i = 0; i < A.length; i++) {
-			
-			
-			try{
-				if(s == A[i] && s != A[i+1]){
-					s++;
-				} else{
-					System.out.println(s);
-				}
-			} catch (Exception e){
+				int N = 15;
+				int count = 0;
+				int i = 0;
+				ArrayList<Integer> max = new ArrayList();
+				max.add(0);
+				String a = Integer.toBinaryString(N);
+				System.out.println(a);
 				
-			}
-			
-			
-		}
+				char[] arr = a.toCharArray();
+				
+				if(arr.length != 0 ){
+					
+					for(i=0; i<arr.length; i++){
+						
+						if(arr[i] == '0'){
+							count++;
+						} else if (arr[i]=='1' && count>0){
+							max.add(count);
+							count=0;
+						}
+						
+					}
+				}
+				
+				max.sort(Comparator.naturalOrder());;
+				System.out.println(max);
+				System.out.println(max.get(max.size()-1));
 		
-		System.out.println(s);
 		
 		
 	}
-	
-	
 
-	public static boolean isIn(int[] A, int s){
-		
-		for(int i = 0; i<A.length; i++){
-            
-			if(s==A[i]){
-				return true;
-			}
-        }
-		
-		return false;
-		
-	}
 	
 	
 	
